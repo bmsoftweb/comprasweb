@@ -277,7 +277,7 @@ export const PedidoForm: React.FC<{ pedidoId?: number; duplicarDe?: number }> = 
           onChange={(a) => setAba(a as Aba)}
           abas={[
             { id: 'gerais', rotulo: 'Informações Gerais' },
-            { id: 'compras', rotulo: 'Compras', contador: form.itens.length },
+            { id: 'compras', rotulo: 'Produtos', contador: form.itens.length },
             { id: 'entrega', rotulo: 'Entrega' },
             { id: 'pagamento', rotulo: 'Cond. de Pagamento', contador: form.condicoes.length },
             'divisor',
@@ -1259,7 +1259,7 @@ const AbaPermissao: React.FC<{ form: FormPedido; setForm: React.Dispatch<React.S
             {!form.itens.length && (
               <tr>
                 <td colSpan={6} className="px-3 py-10 text-center text-stone-400">
-                  Inclua produtos na aba Compras para definir limites.
+                  Inclua produtos na aba Produtos para definir limites.
                 </td>
               </tr>
             )}

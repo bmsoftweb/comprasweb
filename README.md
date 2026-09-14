@@ -31,7 +31,7 @@ recomeçar o teste). As datas dos pedidos de exemplo são relativas ao dia em qu
 ## Roteiro de teste ponta a ponta
 
 1. **Central cria o pedido** — `admin@central.com` → *Novo Pedido*: nome, fechamento,
-   marcadores; aba *Compras* (fornecedor + *Selecionar Produtos*); *Cond. de Pagamento*
+   marcadores; aba *Produtos* (fornecedor + *Selecionar Produtos*); *Cond. de Pagamento*
    (ex.: `28dd` 0% p/ Socio, `28dd` 3% p/ Franqueado); *Associados* → *Carregar todos* de
    um grupo e desmarque alguém; **Gravar e liberar para as lojas**.
    (Ou use o pedido de exemplo **19400**, já liberado.)
