@@ -414,7 +414,7 @@ export const Abas: React.FC<{
   onChange: (id: string) => void;
   className?: string;
 }> = ({ abas, ativa, onChange, className = '' }) => (
-  <div className={`flex items-center gap-1 overflow-x-auto ${className}`}>
+  <div className={`flex items-center gap-1 barra-abas ${className}`}>
     {abas.map((a, i) =>
       a === 'divisor' ? (
         <span key={`d${i}`} className="mx-1.5 h-5 w-px bg-stone-300 dark:bg-stone-700 shrink-0" />

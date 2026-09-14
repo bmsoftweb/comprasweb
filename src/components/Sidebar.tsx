@@ -2,9 +2,6 @@ import React from 'react';
 import {
   ClipboardList,
   Archive,
-  FilePlus2,
-  PackageCheck,
-  MailCheck,
   History,
   Package,
   Truck,
@@ -42,11 +39,14 @@ const MENU_ADMIN: { grupo: string; itens: ItemNav[] }[] = [
   {
     grupo: 'Pedidos',
     itens: [
-      { id: 'abertos', rotulo: 'Pedidos Abertos', descricao: 'Em preenchimento pelas lojas', icone: ClipboardList },
-      { id: 'encerrados', rotulo: 'Pedidos Encerrados', descricao: 'Compra e ordem ao fornecedor', icone: Archive },
-      { id: 'novo', rotulo: 'Novo Pedido', descricao: 'Abrir pedido para as lojas', icone: FilePlus2 },
-      { id: 'recebimento', rotulo: 'Confirmar Recebimento', descricao: 'Entregas por associado', icone: PackageCheck },
-      { id: 'emails', rotulo: 'Confirmação de E-mail', descricao: 'Envios aos fornecedores', icone: MailCheck },
+      // Encerrados, Novo Pedido, Confirmar Recebimento e Confirmação de E-mail ficam só nas abas
+      {
+        id: 'abertos',
+        rotulo: 'Pedidos',
+        descricao: 'Abertos, encerrados e entregas',
+        icone: ClipboardList,
+        ativoEm: ['encerrados', 'novo', 'recebimento', 'emails'],
+      },
       { id: 'historico', rotulo: 'Histórico de Ações', descricao: 'Log com data, hora e usuário', icone: History },
     ],
   },

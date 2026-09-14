@@ -65,6 +65,19 @@ html, body {
 }
 
 /* ==========================================
+   BARRAS DE ABAS
+   Rolam na horizontal em telas estreitas, sem exibir scrollbar.
+   ========================================== */
+.barra-abas {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.barra-abas::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================
    TEXTO RICO (observações do pedido)
    ========================================== */
 .texto-rico ul { list-style: disc; padding-left: 1.25rem; margin: 0.25rem 0; }

@@ -276,7 +276,7 @@ const MenuPedidos: React.FC<{
   ];
 
   return (
-    <div className="shrink-0 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-2 sm:px-4 flex items-center gap-1 overflow-x-auto">
+    <div className="shrink-0 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-2 sm:px-4 flex items-center gap-1 barra-abas">
       {aba('abertos', 'Abertos', ClipboardList)}
       {aba('encerrados', 'Encerrados', Archive)}
       {aba('novo', 'Novo Pedido', FilePlus2)}
