@@ -56,17 +56,11 @@ export const LoginView: React.FC<LoginViewProps> = ({ avisoInicial, theme, onTog
             PULL
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">Compras PULL</h1>
-          <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">
-            A Central abre o pedido, as lojas preenchem e a compra sai consolidada
-          </p>
         </div>
 
         <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-xl p-6 sm:p-8">
           <div className="mb-5">
             <h2 className="text-lg font-bold text-stone-900 dark:text-stone-100">Acesso</h2>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
-              Central de Compras (CD) ou Loja/Associado — o perfil é identificado pelo seu usuário
-            </p>
           </div>
 
           {erro && (
