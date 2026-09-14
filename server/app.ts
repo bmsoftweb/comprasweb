@@ -13,6 +13,9 @@ import { createCadastrosRouter } from './cadastros.js';
  */
 export function createApp() {
   const app = express();
+  // Atrás do proxy da Vercel: req.protocol/host vêm dos cabeçalhos X-Forwarded-*
+  // (usados no link de redefinição de senha quando APP_URL não está definida)
+  app.set('trust proxy', true);
   // Anexos do pedido chegam em base64 no corpo JSON
   app.use(express.json({ limit: '25mb' }));
 

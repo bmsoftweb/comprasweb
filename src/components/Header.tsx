@@ -59,18 +59,16 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
 
-        <div
-          title={dbStatus?.connected ? `MySQL conectado • ${dbStatus.database} • ${dbStatus.latencyMs}ms` : dbStatus?.error || 'Verificando conexão...'}
-          className="hidden md:flex items-center gap-2 bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700/80 rounded-xl px-3 py-1.5"
-        >
-          <Database className={`w-3.5 h-3.5 ${dbStatus?.connected ? 'text-emerald-500' : 'text-rose-500 animate-pulse'}`} />
-          <div className="text-right">
-            <div className="text-[10px] text-stone-500 dark:text-stone-400 font-medium">Banco de Dados</div>
-            <div className={`text-xs font-bold font-mono ${dbStatus?.connected ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
-              {dbStatus?.connected ? `${dbStatus.latencyMs}ms` : 'Offline'}
-            </div>
+        {/* Status do banco fica oculto; só aparece um alerta se a conexão cair */}
+        {dbStatus && !dbStatus.connected && (
+          <div
+            title={dbStatus.error || 'Sem conexão com o banco de dados'}
+            className="hidden md:flex items-center gap-1.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-xl px-3 py-1.5 text-xs font-bold text-rose-600 dark:text-rose-400"
+          >
+            <Database className="w-3.5 h-3.5 animate-pulse" />
+            Banco offline
           </div>
-        </div>
+        )}
 
         <ThemeToggle theme={theme} onToggle={onToggleTheme} variant="header" />
 
