@@ -84,7 +84,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ tela, onNavegar, usuario, onLo
             {usuario.tipo === 'administrador' ? 'CD' : 'LOJA'}
           </div>
           <div className="min-w-0">
-            <h1 className="text-sm font-bold text-stone-900 dark:text-white leading-tight truncate">Compras PULL</h1>
+            <h1 className="text-sm font-bold text-stone-900 dark:text-white leading-tight truncate">ComprasWeb</h1>
             <p className="text-[11px] text-stone-500 dark:text-stone-400 truncate">
               {usuario.tipo === 'administrador' ? 'Central de Compras' : usuario.associado_nome}
             </p>
