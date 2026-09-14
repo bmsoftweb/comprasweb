@@ -1,30 +1,13 @@
-import 'dotenv/config';
-import express, { Request, Response } from 'express';
 import path from 'path';
+import express from 'express';
 import { createServer as createViteServer } from 'vite';
-import { checkDbHealth } from './server/db';
-import { createAuthRouter } from './server/auth';
-import { createPedidosRouter } from './server/pedidos';
-import { createLojaRouter, createArquivosRouter } from './server/loja';
-import { createCadastrosRouter } from './server/cadastros';
+import { createApp } from './server/app.js';
 
 const PORT = Number(process.env.PORT) || 3002;
 
+/** Entrada para execução local. Na Vercel quem serve as rotas é api/index.ts. */
 async function startServer() {
-  const app = express();
-  // Anexos do pedido chegam em base64 no corpo JSON
-  app.use(express.json({ limit: '25mb' }));
-
-  app.get('/api/db/status', async (_req: Request, res: Response) => {
-    res.json(await checkDbHealth());
-  });
-
-  app.use('/api', createAuthRouter());
-  app.use('/api', createPedidosRouter());
-  app.use('/api', createLojaRouter());
-  app.use('/api', createArquivosRouter());
-  app.use('/api', createCadastrosRouter());
-  app.use('/api', (_req, res) => res.status(404).json({ error: 'Rota não encontrada.' }));
+  const app = createApp();
 
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({ server: { middlewareMode: true }, appType: 'spa' });

@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
-import { query } from './db';
+import { query } from './db.js';
 
 /**
  * Sessão por token assinado (HMAC-SHA256): payload.assinatura em base64url.

@@ -1,5 +1,5 @@
 import type { PoolConnection } from 'mysql2/promise';
-import { pool, query, exec } from './db';
+import { pool, query, exec } from './db.js';
 
 /** Situações que aparecem na tela "Pedidos Abertos" */
 export const SITUACOES_ABERTAS = ['em_elaboracao', 'liberado_loja', 'indisponivel', 'aguardando_fechamento'];

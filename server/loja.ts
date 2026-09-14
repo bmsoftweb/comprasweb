@@ -1,14 +1,14 @@
 import { Router, Request, Response } from 'express';
-import { query, transacao } from './db';
-import { caminhoLocal, ehBlob } from './storage';
-import { autenticar, somenteLoja } from './auth';
+import { query, transacao } from './db.js';
+import { caminhoLocal, ehBlob } from './storage.js';
+import { autenticar, somenteLoja } from './auth.js';
 import {
   SQL_VOLUME_POR_PA,
   atualizarPedidosVencidos,
   carregarPedidoCompleto,
   pedidoAceitaPreenchimento,
   registrarLog,
-} from './pedidoDados';
+} from './pedidoDados.js';
 
 function erro(res: Response, err: any, status = 500) {
   res.status(err?.status || status).json({ error: err?.message || String(err) });

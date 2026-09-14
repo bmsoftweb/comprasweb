@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import path from 'path';
 import type { PoolConnection } from 'mysql2/promise';
-import { query, exec, transacao } from './db';
-import { autenticar, somenteAdmin } from './auth';
+import { query, exec, transacao } from './db.js';
+import { autenticar, somenteAdmin } from './auth.js';
 import {
   SITUACOES_ABERTAS,
   SITUACOES_ENCERRADAS,
@@ -10,10 +10,12 @@ import {
   atualizarPedidosVencidos,
   carregarPedidoCompleto,
   registrarLog,
-} from './pedidoDados';
-import { enviarEmail, emailValido } from './email';
-import { salvarAnexo, removerAnexos } from './storage';
-const TAMANHO_MAX_ARQUIVO = 15 * 1024 * 1024;
+} from './pedidoDados.js';
+import { enviarEmail, emailValido } from './email.js';
+import { salvarAnexo, removerAnexos } from './storage.js';
+
+// A Vercel recusa requisições acima de 4,5 MB; em base64 o arquivo cresce ~33%
+const TAMANHO_MAX_ARQUIVO = (process.env.VERCEL ? 3 : 15) * 1024 * 1024;
 
 const SITUACOES_VALIDAS = [...SITUACOES_ABERTAS, ...SITUACOES_ENCERRADAS];
 
@@ -551,7 +553,7 @@ export function createPedidosRouter() {
       const base64 = String(req.body?.conteudo || '').replace(/^data:[^,]*,/, '');
       if (!nome || !base64) return res.status(400).json({ error: 'Arquivo inválido.' });
       const bytes = Buffer.from(base64, 'base64');
-      if (bytes.length > TAMANHO_MAX_ARQUIVO) return res.status(400).json({ error: 'O arquivo passa de 15 MB.' });
+      if (bytes.length > TAMANHO_MAX_ARQUIVO) return res.status(400).json({ error: `O arquivo passa de ${TAMANHO_MAX_ARQUIVO / 1024 / 1024} MB.` });
       const existe = await query<any>('SELECT id FROM pedidos WHERE id = ?', [id]);
       if (!existe.length) return res.status(404).json({ error: 'Pedido não encontrado.' });
 

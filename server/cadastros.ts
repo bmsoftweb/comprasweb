@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import { query, exec, transacao } from './db';
-import { autenticar, somenteAdmin } from './auth';
-import { emailValido } from './email';
+import { query, exec, transacao } from './db.js';
+import { autenticar, somenteAdmin } from './auth.js';
+import { emailValido } from './email.js';
 
 function erro(res: Response, err: any) {
   const dup = err?.code === 'ER_DUP_ENTRY';

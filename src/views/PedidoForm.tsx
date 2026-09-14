@@ -1313,7 +1313,7 @@ const AbaArquivos: React.FC<{ pedido: PedidoCompleto | null; onAtualizar: () => 
     <div className="max-w-3xl space-y-3">
       <label className="flex flex-col items-center justify-center gap-2 p-6 border-2 border-dashed border-stone-300 dark:border-stone-700 rounded-xl cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-900 text-xs text-stone-500">
         <FileUp className="w-6 h-6 text-stone-400" />
-        {enviando ? 'Enviando…' : 'Clique para anexar arquivos (até 15 MB cada) — visíveis também para as lojas'}
+        {enviando ? 'Enviando…' : 'Clique para anexar arquivos (até 3 MB cada) — visíveis também para as lojas'}
         <input type="file" multiple className="hidden" onChange={(e) => enviar(e.target.files)} disabled={enviando} />
       </label>
       <div className="border border-stone-200 dark:border-stone-800 rounded-xl divide-y divide-stone-100 dark:divide-stone-800 bg-white dark:bg-stone-900">
