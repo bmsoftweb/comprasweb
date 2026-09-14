@@ -31,7 +31,7 @@ export async function enviarEmail(para: string | string[], assunto: string, html
         : undefined,
     });
     await transporte.sendMail({
-      from: `"Compras PULL" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from: `"ComprasWeb" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
       to: destinatarios.join(', '),
       subject: assunto,
       html,

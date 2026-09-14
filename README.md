@@ -1,4 +1,4 @@
-# Compras PULL — Central de Compras
+# ComprasWeb — Central de Compras
 
 Pedidos de compra no modelo **PULL**: a Central (CD) abre o pedido, libera para as lojas
 preencherem suas quantidades, negocia com o fornecedor e envia o pedido consolidado.

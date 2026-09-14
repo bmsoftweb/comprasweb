@@ -19,7 +19,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Compras PULL rodando em http://localhost:${PORT}`);
+    console.log(`ComprasWeb rodando em http://localhost:${PORT}`);
     console.log(`MySQL: ${process.env.MYSQL_HOST || '127.0.0.1'} / ${process.env.MYSQL_DATABASE || 'compras_pull'}`);
     if (!process.env.SMTP_HOST) console.log('SMTP não configurado: os e-mails serão registrados como "simulado".');
   });
