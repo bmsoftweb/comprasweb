@@ -52,7 +52,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ avisoInicial, theme, onTog
 
       <div className="w-full max-w-md my-auto">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">Compras PULL</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">ComprasWeb</h1>
         </div>
 
         <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-xl p-6 sm:p-8">
